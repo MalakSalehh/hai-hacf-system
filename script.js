@@ -45,7 +45,7 @@ assessBtn.addEventListener("click", async () => {
   document.getElementById("feedback").textContent = "Generating feedback...";
 
   try {
-    const response = await fetch("/assess", {
+    fetch("/api/assess", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
