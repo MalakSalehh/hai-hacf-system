@@ -45,7 +45,7 @@ assessBtn.addEventListener("click", async () => {
   document.getElementById("feedback").textContent = "Generating feedback...";
 
   try {
-    fetch("/api/assess", {
+    const response = await fetch("/api/assess", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -95,13 +95,16 @@ assessBtn.addEventListener("click", async () => {
     document.getElementById("finalScore").value = finalScore || "";
     document.getElementById("finalCategory").value = category || "";
     document.getElementById("finalFeedback").value = feedback || "";
- } catch (error) {
-  console.error("✗ BACKEND ERROR:", error);
+  } catch (error) {
+    console.error("Frontend error:", error);
 
-  res.status(500).json({
-    error: `API connection failed: ${error.message}`
-  });
-}
+    document.getElementById("predictedScore").textContent = "-";
+    document.getElementById("predictedCategory").textContent = "-";
+    document.getElementById("confidenceLevel").textContent = "-";
+    document.getElementById("reviewRecommendation").textContent = "-";
+    document.getElementById("reasoning").textContent = "Error: " + error.message;
+    document.getElementById("feedback").textContent = "Could not generate feedback.";
+  }
 });
 
 approveBtn.addEventListener("click", () => {
