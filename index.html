@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAI-HACF Assessment Interface</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Hybrid AI-Human Essay Assessment System</h1>
+    <p class="subtitle">HAI-HACF Assessment Interface</p>
+
+    <section class="card">
+      <h2>1. Assessment Setup</h2>
+
+
+      <label for="essayPrompt">Essay Prompt</label>
+      <textarea id="essayPrompt" rows="4" placeholder="Paste the essay prompt here..."></textarea>
+
+      <label for="rubric">Rubric</label>
+      <textarea id="rubric" rows="6" placeholder="Paste the rubric here..."></textarea>
+
+      <label for="calibration">Calibration Examples</label>
+      <textarea id="calibration" rows="8" placeholder="Paste calibration examples here..."></textarea>
+      <label for="minScore">Minimum Score</label>
+<input type="number" id="minScore" placeholder="e.g. 2" />
+
+<label for="maxScore">Maximum Score</label>
+<input type="number" id="maxScore" placeholder="e.g. 12" />
+
+<label for="lowRange">Low Category Range</label>
+<input type="text" id="lowRange" placeholder="e.g. 2-5" />
+
+<label for="mediumRange">Medium Category Range</label>
+<input type="text" id="mediumRange" placeholder="e.g. 6-8" />
+
+<label for="highRange">High Category Range</label>
+<input type="text" id="highRange" placeholder="e.g. 9-12" />
+    </section>
+
+    <section class="card">
+      <h2>2. Student Essay</h2>
+      <label for="essayText">Essay Text</label>
+      <textarea id="essayText" rows="10" placeholder="Paste the student essay here..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>3. Run Assessment</h2>
+      <button id="assessBtn">Assess Essay</button>
+    </section>
+
+    <section class="card">
+      <h2>4. AI Output</h2>
+      <div class="output-box">
+        <p><strong>Predicted Score:</strong> <span id="predictedScore">-</span></p>
+        <p><strong>Category:</strong> <span id="predictedCategory">-</span></p>
+        <p><strong>Confidence Level:</strong> <span id="confidenceLevel">-</span></p>
+<p><strong>Review Recommendation:</strong> <span id="reviewRecommendation">-</span></p>
+        <p><strong>Reasoning:</strong></p>
+        <div id="reasoning" class="result-area">No result yet.</div>
+        <p><strong>Feedback:</strong></p>
+        <div id="feedback" class="result-area">No feedback yet.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. Educator Validation</h2>
+
+      <label for="finalScore">Final Score</label>
+      <input type="text" id="finalScore" placeholder="Enter final validated score" />
+
+      <label for="finalCategory">Final Category</label>
+      <input type="text" id="finalCategory" placeholder="Enter final category" />
+
+      <label for="finalFeedback">Final Feedback</label>
+      <textarea id="finalFeedback" rows="6" placeholder="Edit or confirm final feedback here..."></textarea>
+
+      <button id="approveBtn">Approve Final Assessment</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
